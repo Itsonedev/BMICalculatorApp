@@ -1,0 +1,54 @@
+<div class="container d-flex justify-content-center align-items-center mb-2">
+    <div *ngIf="result === 0" class="card">
+        <div class="card-header" style="background-color: darkgreen; color: white; padding: 10px;">
+            <h2>Adult BMI Calculator</h2>
+          </div>
+      <div class="card-body">
+  
+        <div class="form-group">
+          <h5>Height</h5>
+          <label for="feet">Feet:</label>
+          <input type="number" class="form-control" id="feet" [(ngModel)]="statistics.feet" placeholder="Feet" required style="padding: 8px;">
+        </div>
+  
+        <div class="form-group mb-2">
+          <label for="inches">Inches:</label>
+          <input type="number" class="form-control" id="inches" [(ngModel)]="statistics.inches" placeholder="Inches" required style="padding: 8px;">
+        </div>
+  
+        <div class="form-group">
+            <h5>Weight</h5>
+          <label for="weight">Pounds:</label>
+          <input type="number" class="form-control" id="weight" [(ngModel)]="statistics.pounds" placeholder="Weight" required style="padding: 8px;">
+        </div>
+  
+        <button class="btn btn-primary" (click)="calculateBMI()" style="margin-top: 10px; padding: 10px;">Calculate BMI</button>
+  
+     
+      </div>
+    </div> 
+  </div>
+
+  <div class="container d-flex justify-content-center align-items-center" >
+  <div *ngIf="result !== 0" class="card">
+    <div class="card-header" style="background-color: darkgreen; color: white; padding: 10px;">
+        <h2>BMI Calculator - Results</h2>
+      </div>
+    <div class="card-content" style="padding: 10px;">
+        
+        <p>For the information you entered: <br><br>
+
+            Height: {{statistics.feet}} feet, {{statistics.inches}} inches <br><br>
+            
+            Weight: {{statistics.pounds}} pounds <br><br>
+            
+            Your BMI is <strong>{{result.toFixed(1)}}</strong>, indicating your weight is in the <b>{{statistics.health}}</b> Weight category for adults of your height. BMI is a screening measure and is not intended to diagnose disease or illness. <br> 
+            
+            Maintaining a weight in the healthy BMI range is one way to support overall health as you age. </p> <br>
+
+            <button class="btn btn-primary" (click)="refreshPage()" style="margin-top: 10px; padding: 10px;">Recalculate</button>
+
+    </div>
+  </div>
+</div>
+  
